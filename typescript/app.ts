@@ -1,42 +1,55 @@
-(function(){//patron modulo, solo se para prevenir ciertos errores
-    // function saludar( nombre:string ) {
-    //     //:tipovariable, permite que la propedad sea de un valor espesiico
-    //     // si no tine asiganada una propiedad, signifia que es de tipo Any
-    //     console.table( 'Hola,; ' + nombre ); // Hola Logan
-    // }
-    
-    
-    // const wolverine = {
-    //     nombre: 'Logan' // propiedad: constante es un objeto literal
-    // };
-    
-    
-    // saludar( wolverine.nombre );
-    var mensaje='hola';
-    if(true){
-        var mensaje='adios';
-    }
-    //var; permite redefinir variables en cualquier ambito
-    //
-    let mensaje2='hola'
-    if(true){
-        let mensaje2='adios';
-    }
-    //let; let es una variabele que solo vive en un ambito
-    //no puede ser modificado o redefinido en otro
-    // no puedes redeclarar la variable
+(()=>{
 
-    const mensjae3='hola'
-    const URL_SERVICIO='hola'//si estan en mayusculas significan que son un tipo de dato global que no cabiara a lo largo de la aplicacion
-    //si el nunca se va a modificar la propiedad, se utiliza const  
-    console.log (mensaje, mensaje2)
+  // Uso de Let y Const
+  const nombre = 'Ricardo Tapia';
+  const edad = 23;
+
+  const PERSONAJE = { nombre, edad };
+
+
+  // Cree una interfaz que sirva para validar el siguiente objeto
+  interface Batman {
+    nombre: string;
+    artesMarciales:string[];
+  }
+
+  const batman: Batman = {
+    nombre: 'Bruno Díaz',
+    artesMarciales: ['Karate','Aikido','Wing Chun','Jiu-Jitsu']
+  }
+
+  // Convertir esta funcion a una funcion de flecha
+  const resultadoDoble = ( a:number, b:number ): number => {
+    return (a + b) * 2
+  }
+
+  // Función con parametros obligatorios, opcionales y por defecto
+  // donde NOMBRE = obligatorio
+  //       PODER  = opcional
+  //       ARMA   = por defecto = 'arco'
+  function getAvenger( nombre: string, poder?: string, arma: string = 'arco' ){
+    let mensaje;
+    if( poder ){
+      mensaje = nombre + ' tiene el poder de: ' + poder + ' y un arma: ' + arma;
+    }else{
+      mensaje = nombre + ' tiene un ' + poder
+    }
+  };
+
+  // Cree una clase que permita manejar la siguiente estructura
+  // La clase se debe de llamar rectangulo,
+  // debe de tener dos propiedades:
+  //   * base
+  //   * altura
+  // También un método que calcule el área  =  base * altura,
+  // ese método debe de retornar un numero.
+  class Rectangulo {
+
+    constructor( public base: number, 
+                 public altura: number ) {}
+
+    calcularArea = ():number => this.base * this.altura;
+  }
+
+
 })();
-
-
-
-// con el comando tsc --version, se crea el archivo tsconfig.json, el cual permite ver como funciona el typescript
-
-// con el comando tsc -w /tsc --watch, el typescript cambia al modo de observador
-// esto permita que todos los cambios en el ts, sean compilados y traducidos a un js
-
-
